@@ -24,7 +24,7 @@ baseline <- contrast[[2]]
 target <- contrast[[1]]
 
 md <- read.delim(file=metadata, sep = "\t", stringsAsFactors = FALSE)
-md <- md[with(md, order(SampleID)),]
+md <- md[order(md[[sampleID]]),]
 
 # Read in counts table
 subdata <- read.table(counts, header=TRUE, row.names=1, sep="\t")
