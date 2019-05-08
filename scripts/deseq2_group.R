@@ -67,7 +67,7 @@ md <- md[colnames(cts),]
 dim(md)
 
 # Check
-stopifnot(md[[sampleID]]==colnames(cts))
+stopifnot(rownames(md)==colnames(cts))
 
 # Create dds object from counts data and correct columns
 dds <- DESeqDataSetFromMatrix(countData=cts,

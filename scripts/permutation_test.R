@@ -40,9 +40,10 @@ md[[sampleID]] <- NULL
 keep <- colnames(subdata)[colnames(subdata) %in% rownames(md)]
 subdata <- subdata[, keep]
 dim(subdata)
+md <- md[colnames(subdata),]
 
 # Check
-stopifnot(md[[sampleID]]==colnames(subdata))
+stopifnot(rownames(md)==colnames(subdata))
 
 # Get the number of Cancer samples and number of HD samples from md table
 num1 = sum(md[[Type]] == baseline)
