@@ -46,7 +46,7 @@ biotypes:
   protein_coding
 # Unique project identifier which will be concatenated onto your counts table file name.
 project_id:
-  RNA190110RR
+  your_project
 # Genome assembly used for GO analysis, format must be as below, with the genome assembly first, and the version of ensembl second, separated by a period.
 assembly:
   hg38.90
@@ -77,22 +77,21 @@ meta_columns_to_plot:
 diffexp:
   # contrasts for the deseq2 results method
   contrasts:
-    siKLF4-vs-WT:
-      - siKLF4
-      - WT
-    siKLF4_E2-vs-WT_E2:
-      - siKLF4_E2
-      - WT_E2
-    siKLF4_E2-vs-siKLF4:
-      - siKLF4_E2
-      - siKLF4
-    WT_E2-vs-WT:
-      - WT_E2
-      - WT
+    Treatment1-vs-Control:
+      - Treatment1
+      - Control
+    Treatment2-vs-Control:
+      - Treatment2
+      - Control
+    Treatment3-vs-Control:
+      - Treatment3
+      - Control
+# If oyu would like to run DE on a subsetted group of your conditions, list that group under the LRT option
+# Otherwise, leave empty space after LRT
   LRT:
-    - siKLF4
-    - siKLF4_E2
-    - WT
+    - Treatment1
+    - Treatment2
+    - Treatment3
 
 # The column name in your omic_meta_data file to colour your PCA plot by
 pca:
