@@ -59,6 +59,8 @@ rule deseq2_group:
         sample_id = config["sample_id"],
         linear_model = config["linear_model"],
         LRT = config["diffexp"]["LRT"]
+        colors = config['colors']['rcolorbrewer'],
+        discrete = config['colors']['discrete']
     conda:
         "../envs/deseq2.yaml"
     script:
