@@ -1,4 +1,4 @@
-name: rseqc-omic-wf
+name: rseqc
 channels:
   - bioconda
   - defaults

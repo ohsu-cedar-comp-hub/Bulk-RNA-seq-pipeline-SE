@@ -3,23 +3,18 @@ AUTHOR estabroj@ohsu.edu
 
 Bootstrap: docker
 
-From: continuumio/miniconda3:4.6.14
+From: continuumio/miniconda3
 
 %files
-    trim.yml
+    trim.yaml
 
 %environment
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# This sets global environment variables for anything run within the container
-    export PATH="/opt/conda/bin:/usr/local/bin:/usr/bin:/bin:"
-    unset CONDA_DEFAULT_ENV
-    export ANACONDA_HOME=/opt/conda
+    PATH=/opt/conda/envs/$(head -1 trim.yaml | cut -d' ' -f2)/bin:$PATH
 
 %post
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# This is going to be executed after the base container has been downloaded
-    export PATH=/opt/conda/bin:$PATH
-    conda config --add channels defaults
-    conda config --add channels conda-forge
-    conda config --add channels bioconda
-    conda env update --f trim.yml
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+    echo "source activate $(head -1 trim.yaml | cut -d' ' -f2)" > ~/.bashrc
+    /opt/conda/bin/conda env create -f trim.yaml
+
+%runscript
+    exec /bin/bash
