@@ -1,6 +1,3 @@
-%labels
-AUTHOR estabroj@ohsu.edu
-
 Bootstrap: docker
 
 From: continuumio/miniconda3
