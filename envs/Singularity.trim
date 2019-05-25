@@ -12,6 +12,13 @@ From: continuumio/miniconda3
     PATH=/opt/conda/envs/$(head -1 trim.yaml | cut -d' ' -f2)/bin:$PATH
 
 %post
+    # install debian packages
+    apt-get update
+    apt-get install -y eatmydata
+    eatmydata apt-get install -y wget bzip2 \
+      ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 \
+      git git-annex-standalone
+    apt-get clean
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
     echo "source activate $(head -1 trim.yaml | cut -d' ' -f2)" > ~/.bashrc
     /opt/conda/bin/conda env create -f trim.yaml
