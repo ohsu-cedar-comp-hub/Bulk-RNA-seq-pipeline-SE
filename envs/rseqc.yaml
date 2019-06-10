@@ -1,6 +1,7 @@
 name: rseqc
 channels:
   - bioconda
+  - qttesting
   - defaults
 dependencies:
   - bcftools=1.7
