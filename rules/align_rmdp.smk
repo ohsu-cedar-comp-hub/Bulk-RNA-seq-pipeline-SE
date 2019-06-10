@@ -7,8 +7,6 @@ rule trimming:
         adapter = config["adapter"]
     conda:
         "../envs/trim.yaml"
-    singularity:
-        "shub://ohsu-cedar-comp-hub/Bulk-RNA-seq-pipeline-SE:trim"
     message:
         """--- Trimming."""
     shell:
