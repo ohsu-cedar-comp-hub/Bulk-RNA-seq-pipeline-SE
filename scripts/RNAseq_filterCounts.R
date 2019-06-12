@@ -25,7 +25,7 @@ anno <- get(load(file=annoFile))
 
 if(strsplit(biotypes, split='\\,')[[1]]!=""){
     anno.sub <- anno[paste(anno$gene_biotype) %in% strsplit(biotypes, split='\\,')[[1]] ,]
-    counts.sub <- counts[paste(counts$Genes) %in% unique(paste(anno.sub$external_gene_name)) , ]
+    counts.sub <- counts[paste(rownames(counts)) %in% unique(paste(anno.sub$external_gene_name)) , ]
 }else{
     print("no biotypes provided")
     counts.sub <- counts
@@ -33,7 +33,7 @@ if(strsplit(biotypes, split='\\,')[[1]]!=""){
 
 if(mito==1){
     print("tossing MT- genes")
-    counts.sub <- counts.sub[grep("^MT-", paste(counts.sub$Genes), invert=TRUE), ]
+    counts.sub <- counts.sub[grep("^MT-", paste(rownames(counts.sub)), invert=TRUE), ]
 }
 
 write.table(counts.sub, file=sub(".txt", ".filt.txt", countsFile), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
