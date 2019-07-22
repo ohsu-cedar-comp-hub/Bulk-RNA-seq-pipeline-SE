@@ -1,0 +1,23 @@
+name: samtools_env
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - bzip2=1.0.8
+  - ca-certificates=2019.5.15
+  - curl=7.65.2
+  - krb5=1.16.1
+  - libcurl=7.65.2
+  - libcxx=4.0.1
+  - libcxxabi=4.0.1
+  - libdeflate=1.0
+  - libedit=3.1.20181209
+  - libssh2=1.8.2
+  - ncurses=6.1
+  - openssl=1.1.1c
+  - samtools=1.9
+  - tk=8.6.8
+  - xz=5.2.4
+  - zlib=1.2.11
+
