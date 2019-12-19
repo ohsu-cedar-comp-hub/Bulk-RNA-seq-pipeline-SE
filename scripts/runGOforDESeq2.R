@@ -43,12 +43,19 @@ if (assembly == "hg38.90") {
     geneID2GO <- get(load("./anno/biomaRt/hg38.Ens_90.biomaRt.GO.external.geneID2GO.RData"))
     xx <- get(load("./anno/biomaRt/GO.db.Term.list.rda"))
 }
-if (assembly == "mm10") {
+if (assembly == "mm10.78") {
     organismStr <- "mmusculus"
     ### to get to hg38 mappings ensembl 90!
-    geneID2GO <- get(load("./anno/biomaRt/hg38.Ens_90.biomaRt.GO.external.geneID2GO.RData"))
+    geneID2GO <- get(load("./anno/biomaRt/mm10.Ens_78.biomaRt.GO.external.geneID2GO.RData"))
     xx <- get(load("./anno/biomaRt/GO.db.Term.list.rda"))
 }
+if (assembly == "mm10.96") {
+    organismStr <- "mmusculus"
+    ### to get to hg38 mappings ensembl 90!
+    geneID2GO <- get(load("./anno/biomaRt/mm10.Ens_96.biomaRt.GO.external.geneID2GO.RData"))
+    xx <- get(load("./anno/biomaRt/GO.db.Term.list.rda"))
+}
+
 
 ##-----------------------------------Functions--------------------------------------#
 runGO <- function(geneList,xx=xx,otype,setName){
